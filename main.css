@@ -1644,50 +1644,33 @@ body {
 /* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
 @media (max-width: 768px) {
     .flowers {
-        /*
-        * SKALA: Dibuat sama dengan ukuran aslinya (100%).
-        * POSISI: Digeser ke ATAS sebanyak 25% dari tinggi layar.
-        */
-        transform: scale(1) translateY(-25vh);
+        /* Posisikan bunga dari bawah layar */
+        bottom: 1vh; /* <-- ATUR POSISI NAIK/TURUN BUNGA DI SINI */
+
+        /* Kode di bawah ini untuk menengahkan bunga */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scale(1); /* Skala 1 untuk desktop */
+        transform-origin: bottom center;
     }
 
-   /* Di dalam @media (max-width: 768px) */
-/* Di dalam @media (max-width: 768px) */
-.text-message {
-    position: fixed;
-    /* Ubah ini agar benar-benar mendekati atas */
-    top: 20%; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-    z-index: 100;
-    color: #ffffff;
-    opacity: 0;
-    pointer-events: none;
-    animation: fadeInText 2s ease-in-out 2s forwards;
-}
+    .text-message {
+        /* Posisikan teks dari atas layar */
+        top: 5%; /* <-- ATUR POSISI NAIK/TURUN TEKS DI SINI */
+    }
 
-.to-you-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Hapus transform agar tidak turun lagi */
-    transform: none; 
-}
-
+    /* Ukuran font untuk desktop/tablet */
+    .to-you-text {
+        font-size: 3rem;
+    }
     .main-text {
         font-size: 1rem;
     }
-
     .signature p {
         font-size: 1.5rem;
-        right: 20px;
-        bottom: 15px;
     }
 }
+
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
@@ -1712,15 +1695,20 @@ body {
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
 @media (max-width: 480px) {
-    .flowers {
-        /* Sedikit saya geser ke bawah lagi agar tidak terlalu menutupi teks */
-        transform: scale(1.1) translateY(-20vh);
-    }
+   /* Di dalam @media (max-width: 480px) */
+/* Di dalam @media (max-width: 480px) */
+.flowers {
+    position: absolute;
+    bottom: 13vh;
+    left: 50%;
+    transform: translateX(-50%) scale(1.1);
+    transform-origin: bottom center;
+}
 
-    .text-message {
-        /* Posisikan blok teks secara keseluruhan */
-        top: 15%;
-    }
+.text-message {
+    /* Posisikan teks 5% dari atas layar */
+    top: 15vh;
+}
 
     /* === PERBAIKAN DI SINI === */
     .to-you-text {
@@ -1742,3 +1730,5 @@ body {
         bottom: 10px;
     }
 }
+
+
