@@ -20,15 +20,90 @@ body {
   perspective: 1000px;
 }
 
-.night {
+/* GANTI SELURUH BLOK .NIGHT YANG LAMA DENGAN INI */
+
+body {
+  /* ...properti body yang sudah ada... */
+  /* Gradasi dasar untuk langit malam */
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background-attachment: fixed; /* Agar gradasi tidak ikut scroll */
+}
+
+/* Kontainer untuk semua bintang agar mudah diatur posisinya */
+#stars-container {
   position: fixed;
-  left: 50%;
   top: 0;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(0.1vmin);
-  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
+  overflow: hidden;
+  z-index: -1; /* Pastikan berada di belakang semua konten lain */
+}
+
+/* Fungsi untuk membuat bintang secara acak */
+/* Variabel untuk jumlah bintang di setiap lapisan */
+:root {
+  --star-count-small: 150;
+  --star-count-medium: 70;
+  --star-count-large: 30;
+}
+
+/* CSS untuk Bintang (menggunakan teknik bayangan) */
+#stars1, #stars2, #stars3 {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: absolute;
+  top: 50%; /* Posisi awal di tengah */
+  left: 50%; /* Posisi awal di tengah */
+}
+
+/* Lapisan 1: Bintang kecil dan paling banyak */
+#stars1 {
+  animation: animate-stars 50s linear infinite;
+  box-shadow: /* Posisi X, Posisi Y, Warna (diisi oleh JavaScript nanti) */
+    -37vw -4vh #FFF, 24vw -49vh #FFF, 4vw 2vh #FFF, -2vw -1vh #FFF, 
+    -4vw 16vh #FFF, -32vw 49vh #FFF, -21vw -11vh #FFF, -45vw -42vh #FFF, 
+    /* ... Tambahkan lebih banyak bintang di sini jika perlu */
+    -49vw -41vh #FFF, 3vw 22vh #FFF, -42vw 27vh #FFF, 12vw 14vh #FFF;
+}
+#stars1:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
+
+
+/* Lapisan 2: Bintang sedang */
+#stars2 {
+  width: 2px;
+  height: 2px;
+  animation: animate-stars 100s linear infinite;
+  box-shadow: /* Posisi X, Posisi Y, Warna */
+    -1vw 38vh #FFF, -32vw -24vh #FFF, 44vw 40vh #FFF, 48vw 3vh #FFF, 
+    -11vw -34vh #FFF, -12vw -1vh #FFF, 19vw -4vh #FFF, 32vw -13vh #FFF, 
+    -25vw -25vh #FFF, -13vw 3vh #FFF, -30vw -49vh #FFF, 2vw 26vh #FFF;
+}
+#stars2:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
+
+/* Lapisan 3: Bintang besar dan paling sedikit */
+#stars3 {
+  width: 3px;
+  height: 3px;
+  animation: animate-stars 150s linear infinite;
+  box-shadow: /* Posisi X, Posisi Y, Warna */
+    24vw -14vh #FFF, -25vw 27vh #FFF, -44vw -26vh #FFF, 21vw -2vh #FFF, 
+    -41vw 22vh #FFF, 3vw 37vh #FFF, -20vw -2vh #FFF, 26vw -10vh #FFF;
+}
+#stars3:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
+
+/* Animasi untuk menggerakkan bintang secara perlahan */
+@keyframes animate-stars {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Animasi berkelip yang sudah ada sebelumnya (opsional) */
+@keyframes twinkle {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.5; }
 }
 
 .flowers {
