@@ -1730,19 +1730,17 @@ body {
 /* === GANTI SELURUH BLOK MEDIA QUERY LAMA DENGAN INI === */
 
 /* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
+/* Pastikan kode di dalam blok media query ini persis seperti di bawah */
+
 @media (max-width: 768px) {
     .flowers {
-        /*
-        * SKALA: Dibuat sama dengan ukuran aslinya (100%).
-        * POSISI: Digeser ke ATAS sebanyak 25% dari tinggi layar.
-        */
         transform: scale(1) translateY(-25vh);
     }
 
     .text-message {
         position: fixed;
-        /* Naikkan posisi seluruh blok teks ke 12% dari atas layar */
-        top: 3%;
+        /* Mengatur posisi 2% dari atas */
+        top: 2%; 
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
@@ -1755,16 +1753,14 @@ body {
         animation: fadeInText 2s ease-in-out 2s forwards;
     }
 
-    /* === PERBAIKAN DI SINI === */
     .to-you-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: 3rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  /* Diubah agar naik JAUH lebih tinggi */
-  transform: translateY(-60px); 
-}
-
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        /* Hapus transform agar teks tidak turun lagi */
+        transform: none; 
+    }
 
     .main-text {
         font-size: 1rem;
@@ -1776,6 +1772,7 @@ body {
         bottom: 15px;
     }
 }
+
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
 @media (max-width: 480px) {
