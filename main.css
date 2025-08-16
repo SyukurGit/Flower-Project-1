@@ -1,3 +1,14 @@
+/* TAMBAHKAN BLOK INI DI PALING ATAS */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Mencegah semua jenis scrolling */
+    margin: 0;
+    padding: 0;
+}
+/* ========================================= */
+
+
 *,
 *::after,
 *::before {
@@ -14,9 +25,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  min-height: 100vh;
   background-color: var(--dark-color);
-  overflow: hidden;
   perspective: 1000px;
 }
 
@@ -1642,10 +1651,12 @@ body {
         transform: scale(1) translateY(-25vh);
     }
 
-    .text-message {
+   /* Di dalam @media (max-width: 768px) */
+/* Di dalam @media (max-width: 768px) */
+.text-message {
     position: fixed;
-    /* Naikkan posisi seluruh blok teks ke 12% dari atas layar */
-    top: 12%;
+    /* Ubah ini agar benar-benar mendekati atas */
+    top: 20%; 
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -1658,16 +1669,14 @@ body {
     animation: fadeInText 2s ease-in-out 2s forwards;
 }
 
-    /* === PERBAIKAN DI SINI === */
-    .to-you-text {
+.to-you-text {
     font-family: 'Dancing Script', cursive;
     font-size: 3rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Naikkan lagi lebih tinggi sebesar 25px */
-    transform: translateY(-25px);
+    /* Hapus transform agar tidak turun lagi */
+    transform: none; 
 }
-
 
     .main-text {
         font-size: 1rem;
@@ -1682,38 +1691,6 @@ body {
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
-@media (max-width: 480px) {
-    .flowers {
-        /* Sedikit saya geser ke bawah lagi agar tidak terlalu menutupi teks */
-        transform: scale(1.1) translateY(-20vh);
-    }
-
-    .text-message {
-        /* Posisikan blok teks secara keseluruhan */
-        top: 15%;
-    }
-
-    /* === PERBAIKAN DI SINI === */
-    .to-you-text {
-        font-size: 2rem;
-        /* Menggunakan transform untuk menggeser elemen ini ke atas
-           tanpa memengaruhi elemen lain. */
-        transform: translateY(-45px);
-        margin-bottom: 0; /* Pastikan tidak ada margin bawah */
-    }
-    /* ========================= */
-
-    .main-text {
-        font-size: 0.9rem;
-    }
-    
-    .signature p {
-        font-size: 1.3rem;
-        right: 15px;
-        bottom: 10px;
-    }
-}
-
 
 
 /* TAMBAHKAN BLOK INI UNTUK MENINGKATKAN WARNA TANAMAN */
@@ -1731,47 +1708,6 @@ body {
 
 /* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
 /* Pastikan kode di dalam blok media query ini persis seperti di bawah */
-
-@media (max-width: 768px) {
-    .flowers {
-        transform: scale(1) translateY(-25vh);
-    }
-
-    .text-message {
-        position: fixed;
-        /* Mengatur posisi 2% dari atas */
-        top: 2%; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 800px;
-        text-align: center;
-        z-index: 100;
-        color: #ffffff;
-        opacity: 0;
-        pointer-events: none;
-        animation: fadeInText 2s ease-in-out 2s forwards;
-    }
-
-    .to-you-text {
-        font-family: 'Dancing Script', cursive;
-        font-size: 3rem;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        /* Hapus transform agar teks tidak turun lagi */
-        transform: none; 
-    }
-
-    .main-text {
-        font-size: 1rem;
-    }
-
-    .signature p {
-        font-size: 1.5rem;
-        right: 20px;
-        bottom: 15px;
-    }
-}
 
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
