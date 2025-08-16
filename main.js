@@ -3,7 +3,7 @@ window.onload = () => {
     const envelopeWrapper = document.querySelector('.envelope-wrapper');
     const audio = document.getElementById('background-music');
     // 1. Ambil elemen video berdasarkan ID-nya
-    const video = document.getElementById('background-video');
+const video = document.getElementById('background-video'); // <-- PERBAIKI DI SINI
 
     // Pastikan semua elemen ada
     if (letterContainer && envelopeWrapper && audio && video) {
