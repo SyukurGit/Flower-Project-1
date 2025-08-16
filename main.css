@@ -1620,4 +1620,24 @@ body {
 }
 
 
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Berada di belakang elemen lain, tapi di depan background body */
+    object-fit: cover;
+    
+    /* PENTING: Sembunyikan video pada awalnya */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Animasi fade-in yang mulus */
+}
+
+/* Kelas ini akan kita tambahkan via JavaScript untuk menampilkan video */
+#background-video.visible {
+    opacity: 1;
+}
+
+
 /* =============================================== */
