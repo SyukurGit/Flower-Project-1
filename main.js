@@ -1,12 +1,11 @@
 window.onload = () => {
     const letterContainer = document.getElementById('letter-container');
     const envelopeWrapper = document.querySelector('.envelope-wrapper');
+    // Baris baru: Mengambil elemen audio berdasarkan ID-nya
     const audio = document.getElementById('background-music');
-    // 1. Ambil elemen video berdasarkan ID-nya
-const video = document.getElementById('background-video'); // <-- PERBAIKI DI SINI
 
-    // Pastikan semua elemen ada
-    if (letterContainer && envelopeWrapper && audio && video) {
+    // Pastikan semua elemen ada sebelum melanjutkan
+    if (letterContainer && envelopeWrapper && audio) {
         
         let isOpening = false;
 
@@ -15,19 +14,20 @@ const video = document.getElementById('background-video'); // <-- PERBAIKI DI SI
                 return;
             }
             isOpening = true;
-            
+
+            // Baris baru: Memutar musik saat amplop diklik
             audio.play();
+
+            // 1. Memicu animasi amplop terbuka
             envelopeWrapper.classList.add('open');
 
-            // Tunggu 2.5 detik (saat amplop menghilang)
+            // 2. Tunggu 2.5 detik
             setTimeout(() => {
+                // 3. Tambahkan kelas .hidden untuk memulai transisi fade-out
                 letterContainer.classList.add('hidden');
+                
+                // 4. Hapus .container dari body untuk memulai animasi bunga
                 document.body.classList.remove("container");
-                
-                // 2. Tampilkan dan putar video
-                video.classList.add('visible'); // Memicu fade-in di CSS
-                video.play(); // Mulai memutar video
-                
             }, 2500);
         });
     }
