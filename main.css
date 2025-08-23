@@ -1693,15 +1693,15 @@ body {
 /* Pastikan kode di dalam blok media query ini persis seperti di bawah */
 
 
-/* Untuk HP dengan layar lebih kecil (<= 480px) */
+/* Untuk HP dengan layar lebih kecil mobileee (<= 480px) */
 @media (max-width: 480px) {
    /* Di dalam @media (max-width: 480px) */
 /* Di dalam @media (max-width: 480px) */
 .flowers {
     position: absolute;
-    bottom: 13vh;
+    bottom: 7vh;
     left: 50%;
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.33);
     transform-origin: bottom center;
 }
 
@@ -1732,3 +1732,122 @@ body {
 }
 
 
+
+/* ========================================= */
+/* === KODE FINAL UNTUK BUKET 20 BUNGA === */
+/* ========================================= */
+
+/* Atur ulang posisi 3 bunga utama sebagai inti buket */
+.flower--1 { left: 45%; bottom: 10vmin; transform: rotate(-5deg); z-index: 12; }
+.flower--2 { left: 50%; bottom: 10vmin; transform: rotate(5deg); z-index: 12; }
+.flower--3 { left: 55%; bottom: 10vmin; transform: rotate(-2deg); z-index: 11; }
+.flower--1 .flower__line { height: 60vmin; }
+.flower--2 .flower__line { height: 62vmin; }
+.flower--3 .flower__line { height: 60vmin; }
+
+/* --- Lapisan Belakang (Paling Tinggi) --- */
+.flower--4 { left: 48%; bottom: 15vmin; transform: rotate(0deg) scale(0.9); z-index: 8; }
+.flower--4 .flower__line { height: 65vmin; animation-delay: 1.2s; }
+.flower--4 .flower__leafs { animation-delay: 2s; }
+
+.flower--5 { left: 42%; bottom: 14vmin; transform: rotate(-5deg) scale(0.85); z-index: 8; }
+.flower--5 .flower__line { height: 68vmin; animation-delay: 1.4s; }
+.flower--5 .flower__leafs { animation-delay: 2.2s; }
+
+/* --- Sisi Kiri Buket --- */
+.flower--6 { left: 35%; bottom: 8vmin; transform: rotate(-15deg); z-index: 10; }
+.flower--6 .flower__line { height: 58vmin; animation-delay: 1.6s; }
+.flower--6 .flower__leafs { animation-delay: 2.4s; }
+
+.flower--7 { left: 25%; bottom: 6vmin; transform: rotate(-25deg) scale(0.95); z-index: 11; }
+.flower--7 .flower__line { height: 52vmin; animation-delay: 1.8s; }
+.flower--7 .flower__leafs { animation-delay: 2.6s; }
+
+.flower--8 { left: 15%; bottom: 4vmin; transform: rotate(-35deg) scale(0.9); z-index: 13; }
+.flower--8 .flower__line { height: 48vmin; animation-delay: 2s; }
+.flower--8 .flower__leafs { animation-delay: 2.8s; }
+
+.flower--9 { left: 38%; bottom: 2vmin; transform: rotate(5deg) scale(1); z-index: 14; }
+.flower--9 .flower__line { height: 40vmin; animation-delay: 2.2s; }
+.flower--9 .flower__leafs { animation-delay: 3s; }
+
+.flower--21 { left: 10%; bottom: 1vmin; transform: rotate(-40deg) scale(0.85); z-index: 14; }
+.flower--21 .flower__line { height: 42vmin; animation-delay: 2.4s; }
+.flower--21 .flower__leafs { animation-delay: 3.2s; }
+
+.flower--23 { left: 28%; bottom: 12vmin; transform: rotate(-10deg) scale(0.8); z-index: 9; }
+.flower--23 .flower__line { height: 60vmin; animation-delay: 3s; }
+.flower--23 .flower__leafs { animation-delay: 3.8s; }
+
+
+/* --- Sisi Kanan Buket --- */
+.flower--10 { left: 65%; bottom: 8vmin; transform: rotate(15deg); z-index: 10; }
+.flower--10 .flower__line { height: 58vmin; animation-delay: 1.7s; }
+.flower--10 .flower__leafs { animation-delay: 2.5s; }
+
+.flower--11 { left: 75%; bottom: 6vmin; transform: rotate(25deg) scale(0.95); z-index: 11; }
+.flower--11 .flower__line { height: 52vmin; animation-delay: 1.9s; }
+.flower--11 .flower__leafs { animation-delay: 2.7s; }
+
+.flower--12 { left: 85%; bottom: 4vmin; transform: rotate(35deg) scale(0.9); z-index: 13; }
+.flower--12 .flower__line { height: 48vmin; animation-delay: 2.1s; }
+.flower--12 .flower__leafs { animation-delay: 2.9s; }
+
+.flower--13 { left: 62%; bottom: 2vmin; transform: rotate(-5deg) scale(1); z-index: 14; }
+.flower--13 .flower__line { height: 40vmin; animation-delay: 2.3s; }
+.flower--13 .flower__leafs { animation-delay: 3.1s; }
+
+.flower--22 { left: 90%; bottom: 1vmin; transform: rotate(40deg) scale(0.85); z-index: 14; }
+.flower--22 .flower__line { height: 42vmin; animation-delay: 2.5s; }
+.flower--22 .flower__leafs { animation-delay: 3.3s; }
+
+.flower--24 { left: 72%; bottom: 12vmin; transform: rotate(10deg) scale(0.8); z-index: 9; }
+.flower--24 .flower__line { height: 60vmin; animation-delay: 3.1s; }
+.flower--24 .flower__leafs { animation-delay: 3.9s; }
+
+
+/* --- Lapisan Paling Depan (Terpendek) --- */
+.flower--14 { left: 42%; bottom: 1vmin; transform: rotate(-8deg) scale(0.9); z-index: 15; }
+.flower--14 .flower__line { height: 36vmin; animation-delay: 2.7s; }
+.flower--14 .flower__leafs { animation-delay: 3.5s; }
+
+.flower--15 { left: 58%; bottom: 1vmin; transform: rotate(8deg) scale(0.9); z-index: 15; }
+.flower--15 .flower__line { height: 36vmin; animation-delay: 2.9s; }
+.flower--15 .flower__leafs { animation-delay: 3.7s; }
+
+.flower--16 { left: 50%; bottom: 0; transform: rotate(0deg) scale(0.95); z-index: 16; }
+.flower--16 .flower__line { height: 32vmin; animation-delay: 3.1s; }
+.flower--16 .flower__leafs { animation-delay: 3.9s; }
+
+.flower--17 { left: 28%; bottom: 0; transform: rotate(-5deg) scale(0.85); z-index: 16; }
+.flower--17 .flower__line { height: 34vmin; animation-delay: 3.3s; }
+.flower--17 .flower__leafs { animation-delay: 4.1s; }
+
+.flower--18 { left: 72%; bottom: 0; transform: rotate(5deg) scale(0.85); z-index: 16; }
+.flower--18 .flower__line { height: 34vmin; animation-delay: 3.5s; }
+.flower--18 .flower__leafs { animation-delay: 4.3s; }
+
+
+
+
+/* === KODE PERBAIKAN UNTUK MENGISI CELAH BUKET === */
+
+/* Bunga untuk mengisi celah kiri (Posisi Benar) */
+.flower--21 { 
+  left: 35%; 
+  bottom: 6vmin; 
+  transform: rotate(-15deg) scale(0.9); 
+  z-index: 12; 
+}
+.flower--21 .flower__line { height: 46vmin; animation-delay: 4.5s; }
+.flower--21 .flower__leafs { animation-delay: 5.1s; }
+
+/* Bunga untuk mengisi celah kanan (Posisi Benar) */
+.flower--22 { 
+  left: 65%; 
+  bottom: 6vmin; 
+  transform: rotate(15deg) scale(0.9); 
+  z-index: 12; 
+}
+.flower--22 .flower__line { height: 46vmin; animation-delay: 4.7s; }
+.flower--22 .flower__leafs { animation-delay: 5.3s; }
