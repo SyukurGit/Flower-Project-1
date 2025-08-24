@@ -28,3 +28,27 @@ window.onload = () => {
         });
     }
 };
+
+
+
+// File: main.js
+
+// === KODE UNTUK MENGIRIM SINYAL KE WORKER ===
+// Ganti URL di bawah ini dengan URL worker-mu yang sebenarnya
+const workerUrl = 'https://flower-visitor-counter.syukur.workers.dev/';
+
+window.addEventListener('load', () => {
+    fetch(workerUrl, {
+        method: 'POST'
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.error('Failed to log visit.');
+        }
+    })
+    .catch(error => {
+        console.error('Error logging visit:', error);
+    });
+
+    // ... (kode window.onload yang sudah ada biarkan di sini) ...
+});

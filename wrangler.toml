@@ -1,0 +1,12 @@
+# File: wrangler.toml
+
+name = "flower-visitor-counter" # Kamu bisa ganti nama ini
+main = "src/index.js"
+compatibility_date = "2023-10-30"
+
+# --- Bagian Penting untuk Database (KV) ---
+# Ini memberitahu Worker untuk terhubung ke database KV
+# yang akan kita buat nanti di dasbor Cloudflare.
+kv_namespaces = [
+  { binding = "VISITOR_STATS", id = "ec952e60595846cba430ecd91e4eec04"} # <-- ID ini akan berbeda untukmu
+]

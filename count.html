@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik Pengunjung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #090A0F;
+            color: #fff;
+            padding: 2rem;
+        }
+        h1 {
+            color: #f672b0;
+        }
+        pre {
+            background-color: #1B2735;
+            border-radius: 8px;
+            padding: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Statistik Pengunjung Bunga</h1>
+    <p>Total kunjungan: <span id="total-visits">Memuat...</span></p>
+    <hr>
+    <h2>Log Pengunjung Terbaru</h2>
+    <pre id="visitor-log">Memuat...</pre>
+
+    <script>
+        // === KODE UNTUK MENAMPILKAN DATA DARI WORKER ===
+        const workerUrl = 'https://flower-visitor-counter.syukur.workers.dev/count'; // Ganti dengan URL worker-mu
+
+        fetch(workerUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('total-visits').innerText = data.totalVisits;
+                document.getElementById('visitor-log').innerText = JSON.stringify(data.recentVisitors, null, 2);
+            })
+            .catch(error => {
+                console.error('Error fetching stats:', error);
+                document.getElementById('total-visits').innerText = 'Gagal memuat';
+                document.getElementById('visitor-log').innerText = 'Gagal memuat log.';
+            });
+    </script>
+</body>
+</html>
