@@ -1790,13 +1790,13 @@ body {
 
 
 /* --- Lapisan Paling Depan (Terpendek) --- */
-.flower--14 { left: 42%; bottom: 1vmin; transform: rotate(-8deg) scale(0.9); z-index: 15; }
+/* .flower--14 { left: 42%; bottom: 1vmin; transform: rotate(-8deg) scale(0.9); z-index: 15; }
 .flower--14 .flower__line { height: 36vmin; animation-delay: 2.7s; }
 .flower--14 .flower__leafs { animation-delay: 3.5s; }
 
 .flower--15 { left: 58%; bottom: 1vmin; transform: rotate(8deg) scale(0.9); z-index: 15; }
 .flower--15 .flower__line { height: 36vmin; animation-delay: 2.9s; }
-.flower--15 .flower__leafs { animation-delay: 3.7s; }
+.flower--15 .flower__leafs { animation-delay: 3.7s; } */
 
 .flower--16 { left: 50%; bottom: 0; transform: rotate(0deg) scale(0.95); z-index: 16; }
 .flower--16 .flower__line { height: 32vmin; animation-delay: 3.1s; }
