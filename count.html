@@ -4,46 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistik Pengunjung</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #090A0F;
-            color: #fff;
-            padding: 2rem;
+            color: #EAEAEA;
+            margin: 0;
+            padding: 1.5rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            font-family: 'Dancing Script', cursive; /* Menggunakan font yang sama dengan halaman utama */
+            color: #f672b0;
+            border-bottom: 2px solid #f672b0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
         h1 {
-            color: #f672b0;
+            font-size: 2.5rem;
         }
-        pre {
+        h2 {
+            font-size: 2rem;
+        }
+        .stats-summary {
+            background-color: #1B2735;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .stats-summary p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #DDD;
+        }
+        #total-visits {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
             background-color: #1B2735;
             border-radius: 8px;
-            padding: 1rem;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+            overflow: hidden; /* Agar border-radius terlihat */
         }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #2a3b4c;
+        }
+        th {
+            background-color: #f672b0;
+            color: #1B2735;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #2a3b4c;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        td {
+            font-size: 0.9rem;
+            word-break: break-all; /* Agar teks panjang tidak merusak tabel */
+        }
+        /* Import font dari Google */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
     </style>
 </head>
 <body>
-    <h1>Statistik Pengunjung Bunga</h1>
-    <p>Total kunjungan: <span id="total-visits">Memuat...</span></p>
-    <hr>
-    <h2>Log Pengunjung Terbaru</h2>
-    <pre id="visitor-log">Memuat...</pre>
+    <div class="container">
+        <h1>Statistik Pengunjung Bunga</h1>
+        
+        <div class="stats-summary">
+            <p>Total Kunjungan</p>
+            <span id="total-visits">Memuat...</span>
+        </div>
+        
+        <h2>Log Pengunjung Terbaru</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Waktu</th>
+                    <th>IP Address</th>
+                    <th>Negara</th>
+                    <th>Perangkat & Browser</th>
+                </tr>
+            </thead>
+            <tbody id="visitor-log-table">
+                </tbody>
+        </table>
+    </div>
 
     <script>
-        // === KODE UNTUK MENAMPILKAN DATA DARI WORKER ===
         const workerUrl = 'https://flower-visitor-counter.syukur.workers.dev/count'; // Ganti dengan URL worker-mu
 
         fetch(workerUrl)
             .then(response => response.json())
             .then(data => {
+                // Tampilkan total kunjungan
                 document.getElementById('total-visits').innerText = data.totalVisits;
-                document.getElementById('visitor-log').innerText = JSON.stringify(data.recentVisitors, null, 2);
+
+                // Tampilkan log pengunjung dalam bentuk tabel
+                const tableBody = document.getElementById('visitor-log-table');
+                let tableRows = '';
+
+                data.recentVisitors.forEach(visitor => {
+                    // Format waktu agar lebih mudah dibaca
+                    const formattedDate = new Date(visitor.timestamp).toLocaleString('id-ID', {
+                        dateStyle: 'medium',
+                        timeStyle: 'medium'
+                    });
+
+                    tableRows += `
+                        <tr>
+                            <td>${formattedDate}</td>
+                            <td>${visitor.ip}</td>
+                            <td>${visitor.country}</td>
+                            <td>${visitor.userAgent}</td>
+                        </tr>
+                    `;
+                });
+
+                tableBody.innerHTML = tableRows;
+
             })
             .catch(error => {
                 console.error('Error fetching stats:', error);
                 document.getElementById('total-visits').innerText = 'Gagal memuat';
-                document.getElementById('visitor-log').innerText = 'Gagal memuat log.';
             });
     </script>
 </body>
