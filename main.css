@@ -46,83 +46,60 @@ body {
 /* Kontainer untuk semua bintang agar mudah diatur posisinya */
 /* GANTI SEMUA KODE BINTANG YANG LAMA DENGAN BLOK INI */
 
-#stars-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
+/* GANTI SEMUA KODE BINTANG YANG LAMA DENGAN BLOK INI */
+
+.night {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    z-index: -10;
+    overflow: hidden; /* Pastikan bintang tidak keluar dari layar */
 }
 
-#stars1, #stars2, #stars3 {
+/* Fungsi untuk membuat bintang secara acak */
+@function random-stars($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+.stars {
   width: 1px;
   height: 1px;
   background: transparent;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  will-change: transform; /* OPTIMASI PERFORMA */
-
+  box-shadow: random-stars(700);
+  animation: animStar 50s linear infinite;
 }
 
-/* Lapisan 1: Bintang kecil (jumlahnya SANGAT BANYAK) */
-#stars1 {
-  animation: animate-stars 50s linear infinite;
-  box-shadow: 
-    -37vw -4vh #FFF, 24vw -49vh #FFF, 4vw 2vh #FFF, -2vw -1vh #FFF, -4vw 16vh #FFF, 
-    -32vw 49vh #FFF, -21vw -11vh #FFF, -45vw -42vh #FFF, -49vw -41vh #FFF, 
-    3vw 22vh #FFF, -42vw 27vh #FFF, 12vw 14vh #FFF, -18vw -33vh #FFF, 32vw -2vh #FFF, 
-    4vw -12vh #FFF, -12vw 21vh #FFF, -34vw -26vh #FFF, -42vw 49vh #FFF, -31vw 1vh #FFF, 
-    -5vw -19vh #FFF, -4vw 42vh #FFF, 1vw 37vh #FFF, 10vw 13vh #FFF, -41vw -47vh #FFF, 
-    -43vw -25vh #FFF, -20vw -4vh #FFF, -38vw -23vh #FFF, -21vw 25vh #FFF, 
-    -44vw 2vh #FFF, -35vw -12vh #FFF, 26vw -19vh #FFF, -35vw 22vh #FFF, -45vw 27vh #FFF, 
-    -22vw 23vh #FFF, -1vw -19vh #FFF, -30vw 47vh #FFF, -43vw 25vh #FFF, -40vw 14vh #FFF, 
-    -48vw 23vh #FFF, -31vw -33vh #FFF, 2vw 32vh #FFF, 44vw -2vh #FFF, 14vw -22vh #FFF, 
-    -24vw 31vh #FFF, -42vw -39vh #FFF, -31vw -11vh #FFF, 5vw 29vh #FFF, -4vw -32vh #FFF, 
-    1vw -47vh #FFF, 20vw 23vh #FFF, -41vw 37vh #FFF, 49vw 41vh #FFF, -3vw -32vh #FFF, 
-    -1vw 47vh #FFF, -20vw -23vh #FFF, 41vw -37vh #FFF, -49vw 11vh #FFF, 3vw 42vh #FFF;
-}
-#stars1:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
-
-/* Lapisan 2: Bintang sedang (jumlahnya ditambah banyak) */
-#stars2 {
+.stars2 {
   width: 2px;
   height: 2px;
-  animation: animate-stars 100s linear infinite;
-  box-shadow: 
-    -1vw 38vh #FFF, -32vw -24vh #FFF, 44vw 40vh #FFF, 48vw 3vh #FFF, -11vw -34vh #FFF, 
-    -12vw -1vh #FFF, 19vw -4vh #FFF, 32vw -13vh #FFF, -25vw -25vh #FFF, -13vw 3vh #FFF, 
-    -30vw -49vh #FFF, 2vw 26vh #FFF, 45vw -40vh #FFF, 3vw -28vh #FFF, -44vw 10vh #FFF, 
-    -48vw -13vh #FFF, 11vw -4vh #FFF, -2vw -21vh #FFF, -19vw 14vh #FFF, -32vw 23vh #FFF, 
-    35vw -35vh #FFF, 23vw -13vh #FFF, 40vw -49vh #FFF, -12vw 36vh #FFF, -28vw 45vh #FFF, 
-    -33vw 10vh #FFF, 40vw 39vh #FFF, -45vw 4vh #FFF, -1vw 44vh #FFF, -19vw 24vh #FFF;
+  background: transparent;
+  box-shadow: random-stars(200);
+  animation: animStar 100s linear infinite;
 }
-#stars2:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
 
-/* Lapisan 3: Bintang besar (jumlahnya juga ditambah) */
-#stars3 {
+.stars3 {
   width: 3px;
   height: 3px;
-  animation: animate-stars 150s linear infinite;
-  box-shadow: 
-    24vw -14vh #FFF, -25vw 27vh #FFF, -44vw -26vh #FFF, 21vw -2vh #FFF, -41vw 22vh #FFF, 
-    3vw 37vh #FFF, -20vw -2vh #FFF, 26vw -10vh #FFF, -40vw 40vh #FFF, 13vw -8vh #FFF, 
-    -25vw -50vh #FFF, -40vw 2vh #FFF, 21vw 22vh #FFF, -3vw -37vh #FFF, 30vw 2vh #FFF, 
-    -26vw 30vh #FFF, -15vw 45vh #FFF, 45vw -15vh #FFF, -38vw -30vh #FFF;
-}
-#stars3:after { content: ''; position: absolute; top: -50vh; left: -50vw; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
-
-/* Animasi untuk menggerakkan bintang secara perlahan (TETAP SAMA) */
-@keyframes animate-stars {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-2000px); }
+  background: transparent;
+  box-shadow: random-stars(100);
+  animation: animStar 150s linear infinite;
 }
 
-
-
-
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
 
 
 
@@ -141,6 +118,8 @@ body {
   z-index: 10;
   --fl-speed: 0.3s;
     will-change: transform; /* OPTIMASI PERFORMA */
+      transform: translateZ(0); /* <-- TAMBAHKAN INI */
+
 
 }
 .flower--1 {
