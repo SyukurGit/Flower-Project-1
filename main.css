@@ -63,6 +63,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  will-change: transform; /* OPTIMASI PERFORMA */
+
 }
 
 /* Lapisan 1: Bintang kecil (jumlahnya SANGAT BANYAK) */
@@ -138,6 +140,8 @@ body {
   transform-origin: bottom center;
   z-index: 10;
   --fl-speed: 0.3s;
+    will-change: transform; /* OPTIMASI PERFORMA */
+
 }
 .flower--1 {
   -webkit-animation: moving-flower-1 4s linear infinite;
