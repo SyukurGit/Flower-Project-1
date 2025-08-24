@@ -1417,7 +1417,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ef97d3;
+    background: #ededed;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -1455,7 +1455,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #00455d;
+    background-color: #f42f70;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     z-index: 1;
@@ -1468,7 +1468,7 @@ body {
     left: 0;
     width: 100%;
     height: 100px; /* Setengah tinggi amplop */
-    border-top: 95px solid #f6f6f6;
+    border-top: 95px solid #f76193;
     border-right: 150px solid transparent;
     border-left: 150px solid transparent;
     transform-origin: top;
@@ -1484,7 +1484,7 @@ body {
     left: 5%;
     width: 90%;
     height: 180px;
-    border-top: #f0e8d9;
+    border-top: #7fb3c6;
     background: (0 92% 0%);
     border-radius: 10px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
