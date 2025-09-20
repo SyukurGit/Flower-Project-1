@@ -306,7 +306,7 @@ body {
   height: var(--h);
   border-top-right-radius: var(--h);
   border-bottom-left-radius: var(--h);
-  background-image: linear-gradient(to top, rgba(20, 117, 122, 0.4), #ffee00);
+  background-image: linear-gradient(to top, rgba(20, 117, 122, 0.4), #ffc0f0);
 }
 .flower__line__leaf--1 {
   transform: rotate(70deg) rotateY(30deg);
@@ -1621,38 +1621,6 @@ body {
 /* ========================================= */
 
 
-/* === GANTI SELURUH BLOK MEDIA QUERY LAMA DENGAN INI === */
-
-/* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
-/* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
-@media (max-width: 768px) {
-    .flowers {
-        /* Posisikan bunga dari bawah layar */
-        bottom: 1vh; /* <-- ATUR POSISI NAIK/TURUN BUNGA DI SINI */
-
-        /* Kode di bawah ini untuk menengahkan bunga */
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%) scale(1); /* Skala 1 untuk desktop */
-        transform-origin: bottom center;
-    }
-
-    .text-message {
-        /* Posisikan teks dari atas layar */
-        top: 40vh; /* <-- ATUR POSISI NAIK/TURUN TEKS DI SINI */
-    }
-
-    /* Ukuran font untuk desktop/tablet */
-    .to-you-text {
-        font-size: 3rem;
-    }
-    .main-text {
-        font-size: 1rem;
-    }
-    .signature p {
-        font-size: 1.5rem;
-    }
-}
 
 
 /* Untuk HP dengan layar lebih kecil (<= 480px) */
@@ -1672,47 +1640,7 @@ body {
 
 /* === GANTI SELURUH BLOK MEDIA QUERY LAMA DENGAN INI === */
 
-/* Untuk tablet dan HP dengan layar lebih besar (<= 768px) */
-/* Pastikan kode di dalam blok media query ini persis seperti di bawah */
 
-
-/* Untuk HP dengan layar lebih kecil mobileee (<= 480px) */
-@media (max-width: 480px) {
-   /* Di dalam @media (max-width: 480px) */
-/* Di dalam @media (max-width: 480px) */
-.flowers {
-    position: absolute;
-    bottom: 2vh;
-    left: 50%;
-    transform: translateX(-50%) scale(1.33);
-    transform-origin: bottom center;
-}
-
-.text-message {
-    /* Posisikan teks 5% dari atas layar */
-    top: 20vh;
-}
-
-    /* === PERBAIKAN DI SINI === */
-    .to-you-text {
-        font-size: 2rem;
-        /* Menggunakan transform untuk menggeser elemen ini ke atas
-           tanpa memengaruhi elemen lain. */
-        transform: translateY(-45px);
-        margin-bottom: 0; /* Pastikan tidak ada margin bawah */
-    }
-    /* ========================= */
-
-    .main-text {
-        font-size: 0.9rem;
-    }
-    
-    .signature p {
-        font-size: 1.3rem;
-        right: 15px;
-        bottom: 10px;
-    }
-}
 
 
 
@@ -1836,7 +1764,71 @@ body {
 .flower--22 .flower__leafs { animation-delay: 5.3s; }
 
 
+/* =================================================== */
+/* === SEMUA ATURAN RESPONSIVE HANYA DI DALAM BLOK INI === */
+/* =================================================== */
 
+/* Untuk Tablet dan Perangkat Seluler (lebar layar <= 768px) */
+@media (min-width: 768px) {
+    
+    /* Atur posisi Bunga dan Teks di sini */
+    .flowers {
+        bottom: -8vh; /* <-- UBAH NILAI INI UNTUK NAIK/TURUN BUNGA */
+        
+        /* Kode ini untuk menengahkan dan mengatur skala */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scale(1);
+        transform-origin: bottom center;
+    }
+
+    .text-message {
+        top: 1vh; /* <-- UBAH NILAI INI UNTUK NAIK/TURUN TEKS */
+    }
+
+    /* Ukuran font untuk tablet */
+    .to-you-text {
+        font-size: 3.4rem;
+        margin: 4vh;
+    }
+    .main-text {
+        font-size: 1.1rem;
+    }
+    .signature p {
+        font-size: 1.5rem;
+    }
+}
+
+/* KHUSUS Untuk Ponsel (lebar layar <= 480px) */
+/* Aturan di sini akan menimpa aturan 768px jika layar lebih kecil */
+@media (max-width: 480px) {
+    .flowers {
+        /* Perbesar skala bunga di ponsel agar lebih terlihat */
+        transform: translateX(-50%) scale(1.33);
+        bottom: -4vh; /* <-- Anda bisa sesuaikan lagi posisi untuk ponsel jika perlu */
+    }
+
+    .text-message {
+        top: 20vh; /* <-- Anda bisa sesuaikan lagi posisi untuk ponsel jika perlu */
+    }
+
+    .to-you-text {
+        font-size: 2.5rem;
+        /* Perbaikan agar posisi tidak terlalu turun di layar kecil */
+        transform: translateY(-45px); 
+        margin-bottom: 1;
+    }
+
+    .main-text {
+        font-size: 0.9rem;
+    }
+    
+    .signature p {
+        font-size: 1.3rem;
+        right: 15px;
+        bottom: 10px;
+    }
+}
 
 
 
