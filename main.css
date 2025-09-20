@@ -1639,7 +1639,7 @@ body {
 
     .text-message {
         /* Posisikan teks dari atas layar */
-        top: 5%; /* <-- ATUR POSISI NAIK/TURUN TEKS DI SINI */
+        top: 40vh; /* <-- ATUR POSISI NAIK/TURUN TEKS DI SINI */
     }
 
     /* Ukuran font untuk desktop/tablet */
